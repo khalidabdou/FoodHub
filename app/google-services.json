@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1091835240953",
+    "firebase_url": "https://foodhub-b424a.firebaseio.com",
+    "project_id": "foodhub-b424a",
+    "storage_bucket": "foodhub-b424a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1091835240953:android:c573bf67a65cfcfa",
+        "android_client_info": {
+          "package_name": "com.recipes.foodhub"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1091835240953-vq9cjpp12br06u5m3r1edinv146ivsim.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.recipes.foodhub",
+            "certificate_hash": "e31351e9fa8e252ec4d6626d59dea782f376c5f9"
+          }
+        },
+        {
+          "client_id": "1091835240953-3t985b2vo7mm8p0fbddc9vut4jo5gi99.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCY9FYlZ8b5LBMxYQKcuFyWtNO68y15sO0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1091835240953-3t985b2vo7mm8p0fbddc9vut4jo5gi99.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

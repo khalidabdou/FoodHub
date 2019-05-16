@@ -13,17 +13,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".addRecipe">
+        <activity android:name=".getRecipesActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".addRecipe">
+
+        </activity>
         <activity android:name=".views.Splash">
 
         </activity>
         <activity android:name=".views.Profile">
+
         </activity>
         <activity
             android:name=".views.Main2Activity"
@@ -33,6 +37,7 @@
             android:name=".views.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
+
         </activity>
 
         <meta-data

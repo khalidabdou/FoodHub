@@ -13,4 +13,36 @@ public class recipe {
         this.how_to = how_to;
         this.url_image = url_image;
     }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getIngredient() {
+        return ingredient;
+    }
+
+    public void setIngredient(String ingredient) {
+        this.ingredient = ingredient;
+    }
+
+    public String getHow_to() {
+        return how_to;
+    }
+
+    public void setHow_to(String how_to) {
+        this.how_to = how_to;
+    }
+
+    public String getUrl_image() {
+        return url_image;
+    }
+
+    public void setUrl_image(String url_image) {
+        this.url_image = url_image;
+    }
 }

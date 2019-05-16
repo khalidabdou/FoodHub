@@ -6,6 +6,7 @@ public class recipe {
     public String how_to;
     public String url_image;
 
+    public recipe(){}
     public recipe(String title, String ingredient, String how_to, String url_image) {
         this.title = title;
         this.ingredient = ingredient;

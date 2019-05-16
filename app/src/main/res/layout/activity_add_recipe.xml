@@ -11,60 +11,83 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/imageView6"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:background="@color/flatui_wet_asphalt"
-            android:contentDescription="image"
-            android:padding="70dp"
-            app:srcCompat="@drawable/ic_add_a_photo_black_24dp"
-            android:onClick="image_add"/>
-
-        <TextView
-            android:id="@+id/textView"
+        <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:text="TITLE *" />
+            android:layout_weight="0">
 
-        <EditText
-            android:id="@+id/id_title"
+            <ImageView
+                android:id="@+id/upload_image"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:background="@color/flatui_wet_asphalt"
+                android:contentDescription="image"
+                android:padding="60dp"
+                app:srcCompat="@drawable/ic_add_a_photo_black_24dp"
+                tools:ignore="VectorDrawableCompat"
+                tools:layout_editor_absoluteX="0dp"
+                tools:layout_editor_absoluteY="-3dp" />
+
+        </android.support.constraint.ConstraintLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:paddingStart="10dp" />
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:text="INGREDIENTS" />
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="TITLE *" />
 
-        <EditText
-            android:id="@+id/id_ingdedient"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:paddingStart="10dp" />
+            <EditText
+                android:id="@+id/id_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:paddingStart="10dp" />
 
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:text="HOW TO COOK" />
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="INGREDIENTS" />
 
-        <EditText
-            android:id="@+id/id_how_to"
-            android:layout_width="match_parent"
-            android:layout_height="322dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:paddingStart="10dp" />
+            <EditText
+                android:id="@+id/id_ingdedient"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:paddingStart="10dp" />
 
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="HOW TO COOK" />
+
+            <EditText
+                android:id="@+id/id_how_to"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:paddingStart="10dp" />
+
+            <Button
+                android:id="@+id/mButtonUpload"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="submit" />
+
+        </LinearLayout>
     </LinearLayout>
+
 </android.support.constraint.ConstraintLayout>

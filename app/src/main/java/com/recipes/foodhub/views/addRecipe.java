@@ -1,4 +1,4 @@
-package com.recipes.foodhub;
+package com.recipes.foodhub.views;
 
 import android.content.ContentResolver;
 import android.content.Context;
@@ -24,6 +24,7 @@ import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
+import com.recipes.foodhub.R;
 import com.recipes.foodhub.model.recipe;
 import com.recipes.foodhub.presenter.IRescips_manager;
 import com.recipes.foodhub.presenter.recipes_manager;
@@ -143,7 +144,7 @@ public class addRecipe extends AppCompatActivity {
                                 @Override
                                 public void onSuccess(Uri uri) {
                                     String url = uri.toString();
-                                    recipe.url_image=url.toString();
+                                    recipe.setUrl_image(url.toString());
                                             uploadinfo();
                                     Toast.makeText(addRecipe.this, "Upload successful"+mImageUri, Toast.LENGTH_LONG).show();
                                 }
@@ -183,9 +184,9 @@ public class addRecipe extends AppCompatActivity {
     private void uploadinfo(){
 
 
-        recipe.title=title_recipe.getText().toString();
-        recipe.ingredient=ingdedient.getText().toString();
-        recipe.how_to=how_to.getText().toString();
+        recipe.setTitle(title_recipe.getText().toString());
+        recipe.setIngredient(ingdedient.getText().toString());
+        recipe.setHow_to(how_to.getText().toString());
         myrecipe.addRecipe(recipe,context);
     }
 

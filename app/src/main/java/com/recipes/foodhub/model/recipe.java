@@ -1,17 +1,27 @@
 package com.recipes.foodhub.model;
 
 public class recipe {
-    public String title;
-    public String ingredient;
-    public String how_to;
-    public String url_image;
+    private String Id_recp;
+    private String title;
+    private String ingredient;
+    private String how_to;
+    private String url_image;
 
     public recipe(){}
-    public recipe(String title, String ingredient, String how_to, String url_image) {
+    public recipe(String title, String ingredient, String how_to, String url_image,String Id_recp) {
+        this.Id_recp=Id_recp;
         this.title = title;
         this.ingredient = ingredient;
         this.how_to = how_to;
         this.url_image = url_image;
+    }
+
+    public String getId_recp() {
+        return Id_recp;
+    }
+
+    public void setId_recp(String id_recp) {
+        Id_recp = id_recp;
     }
 
     public String getTitle() {

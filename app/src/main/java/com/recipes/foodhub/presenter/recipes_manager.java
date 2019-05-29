@@ -8,6 +8,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.recipes.foodhub.firebase.manager_firebase;
 import com.recipes.foodhub.model.recipe;
@@ -17,15 +18,9 @@ import java.util.Map;
 
 public class recipes_manager implements IRescips_manager {
 
-
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
     @Override
     public void addRecipe(recipe recipe, final Context context) {
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-        Map<String, Object> myrecipe = new HashMap<>();
-        myrecipe.put("first", "Alan");
-        myrecipe.put("middle", "Mathison");
-        myrecipe.put("last", "Turing");
-        myrecipe.put("born", 1912);
 
         db.collection("Recipes")
                 .add(recipe)
@@ -44,5 +39,16 @@ public class recipes_manager implements IRescips_manager {
                 });
 
 
+    }
+
+    @Override
+    public void getRecipe(String id) {
+        DocumentReference ref=db.collection("Recipes").document(id);
+        ref.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                    @Override
+                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+                        recipe recipe=documentSnapshot.toObject(recipe.class);
+                    }
+                });
     }
 }

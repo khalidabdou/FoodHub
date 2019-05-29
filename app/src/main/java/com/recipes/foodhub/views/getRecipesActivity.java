@@ -1,4 +1,4 @@
-package com.recipes.foodhub;
+package com.recipes.foodhub.views;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,8 +8,10 @@ import android.widget.Toast;
 
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
+import com.recipes.foodhub.R;
 import com.recipes.foodhub.model.recipe;
 import com.recipes.foodhub.presenter.RecipeAdapter;
 
@@ -23,6 +25,7 @@ public class getRecipesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_get_recipes);
         setUpRecyclerView();
+
 
     }
     private void setUpRecyclerView() {
@@ -38,7 +41,7 @@ public class getRecipesActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
-        Toast.makeText(this, "recycle", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "recycle", Toast.LENGTH_LONG).show();
     }
 
     @Override

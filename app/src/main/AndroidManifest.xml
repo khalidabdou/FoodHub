@@ -13,21 +13,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".getRecipesActivity">
+        <activity android:name=".views.detailRecipe">
+        </activity>
+        <activity android:name=".views.getRecipesActivity">
+        </activity>
+        <activity android:name=".views.addRecipe">
+        </activity>
+        <activity android:name=".views.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".addRecipe">
-
-        </activity>
-        <activity android:name=".views.Splash">
-
-        </activity>
         <activity android:name=".views.Profile">
-
         </activity>
         <activity
             android:name=".views.Main2Activity"

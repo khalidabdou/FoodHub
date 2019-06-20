@@ -34,6 +34,7 @@ import com.google.firebase.auth.GoogleAuthProvider;
 import com.recipes.foodhub.R;
 import com.recipes.foodhub.data.SharedPref;
 import com.recipes.foodhub.model.user;
+import com.recipes.foodhub.presenter.doInBackgroundTask;
 import com.recipes.foodhub.presenter.user_manager;
 import com.wang.avi.AVLoadingIndicatorView;
 
@@ -44,16 +45,18 @@ public class Splash extends AppCompatActivity implements GoogleApiClient.OnConne
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener authStateListener;
     private GoogleApiClient mGoogleApiClient;
-    private Context mContext;
+    public static Context mContext;
     private user_manager manager_user;
     private user us;
     private int saved;
     private SharedPref sharedPref;
+    com.wang.avi.AVLoadingIndicatorView avi;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         mContext=this;
+        avi=findViewById(R.id.aviMain);
         sharedPref=new SharedPref(mContext);
         saved=sharedPref.getInt("saved");
         manager_user=new user_manager(mContext);
@@ -66,6 +69,7 @@ public class Splash extends AppCompatActivity implements GoogleApiClient.OnConne
                 us=new user();
                 if (saved==1){
                     startActivity(new Intent(Splash.this,MainActivity.class));
+                    Toast.makeText(Splash.this, "deja", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 try {
@@ -75,14 +79,15 @@ public class Splash extends AppCompatActivity implements GoogleApiClient.OnConne
                     us.setUserid(user.getUid());
                     us.setFollowers(0);
                     us.setFollowing(0);
-                    manager_user.addUser(us);
+
                     manager_user.adduserShered(us);
+                    Toast.makeText(Splash.this, "saved", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(Splash.this,MainActivity.class));
                 }catch (Exception ex){
                     Toast.makeText(mContext, ex.toString(), Toast.LENGTH_SHORT).show();
                 }
 
-            }
+            }else Toast.makeText(Splash.this, "user null", Toast.LENGTH_SHORT).show();
             }
         };
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -136,7 +141,9 @@ public class Splash extends AppCompatActivity implements GoogleApiClient.OnConne
                 // Google Sign In was successful, authenticate with Firebase
                 GoogleSignInAccount account = result.getSignInAccount();
                 firebaseAuthWithGoogle(account);
-                Toast.makeText(mContext, "success", Toast.LENGTH_SHORT).show();
+                Toast.makeText(mContext, "success auth", Toast.LENGTH_SHORT).show();
+                avi.show();
+
             }else {
                 Toast.makeText(mContext, result.getStatus().toString(), Toast.LENGTH_SHORT).show();
             }

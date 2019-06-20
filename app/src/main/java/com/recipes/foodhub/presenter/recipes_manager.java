@@ -19,6 +19,12 @@ import java.util.Map;
 public class recipes_manager implements IRescips_manager {
 
     FirebaseFirestore db = FirebaseFirestore.getInstance();
+    recipe mRecipe;
+    Context context;
+
+    public recipes_manager(Context context){
+        this.context= context;
+    }
     @Override
     public void addRecipe(recipe recipe, final Context context) {
 
@@ -42,13 +48,37 @@ public class recipes_manager implements IRescips_manager {
     }
 
     @Override
-    public void getRecipe(String id) {
+    public recipe getRecipe(String id) {
+        mRecipe=new recipe();
         DocumentReference ref=db.collection("Recipes").document(id);
         ref.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                     @Override
                     public void onSuccess(DocumentSnapshot documentSnapshot) {
-                        recipe recipe=documentSnapshot.toObject(recipe.class);
+                        mRecipe=documentSnapshot.toObject(recipe.class);
+
                     }
-                });
+
+                }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(context, "faild", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        return mRecipe;
+    }
+
+    @Override
+    public void incrementView(String id,int ranaking) {
+
+        DocumentReference ref=db.collection("Recipes").document(id);
+
+        ref.update("ranking",ranaking).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+
+            }
+        });
+
     }
 }

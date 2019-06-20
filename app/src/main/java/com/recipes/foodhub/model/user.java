@@ -2,12 +2,12 @@ package com.recipes.foodhub.model;
 
 public class user {
 
-    String userid;
-    String name;
-    String Email;
-    String image_url;
-    int followers;
-    int following;
+    public String userid;
+    public String name;
+    public String email;
+    public String image_url;
+    public int followers;
+    public int following;
 
     public int getFollowers() {
         return followers;
@@ -29,7 +29,7 @@ public class user {
     public user(String userid, String name, String email, String image_url) {
         this.userid = userid;
         this.name = name;
-        Email = email;
+        this.email = email;
         this.image_url = image_url;
     }
 
@@ -50,11 +50,11 @@ public class user {
     }
 
     public String getEmail() {
-        return Email;
+        return email;
     }
 
     public void setEmail(String email) {
-        Email = email;
+        email = email;
     }
 
     public String getImage_url() {

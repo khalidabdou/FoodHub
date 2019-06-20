@@ -1,15 +1,12 @@
 package com.recipes.foodhub.presenter;
 
-import android.net.sip.SipSession;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
@@ -27,8 +24,7 @@ public class RecipeAdapter  extends FirestoreRecyclerAdapter<recipe, RecipeAdapt
     @Override
     protected void onBindViewHolder(@NonNull recipeHolder holder, int position, @NonNull recipe model) {
         holder.txt_title.setText(model.getTitle());
-        //holder.txt_ingredient.setText(model.getIngredient());
-       // holder.txt_how.setText(String.valueOf(model.getHow_to()));
+        holder.Ranking.setText(String.valueOf(model.getRanking()));
         Picasso.get().load(model.getUrl_image()).into(holder.imageRecipe);
 
     }
@@ -43,16 +39,14 @@ public class RecipeAdapter  extends FirestoreRecyclerAdapter<recipe, RecipeAdapt
 
     class recipeHolder extends RecyclerView.ViewHolder {
         TextView txt_title;
-       // TextView txt_ingredient;
-       // TextView txt_how;
+        TextView Ranking;
         ImageView imageRecipe;
 
         public recipeHolder(View itemView) {
             super(itemView);
             txt_title = itemView.findViewById(R.id.id_name_recipe);
-           // txt_ingredient = itemView.findViewById(R.id.id_name_recipe);
-            //txt_how = itemView.findViewById(R.id.text_view_priority);
-            imageRecipe=itemView.findViewById(R.id.image_recipe);
+            Ranking=itemView.findViewById(R.id.id_ranking);
+            imageRecipe=itemView.findViewById(R.id.id_image_recipe);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

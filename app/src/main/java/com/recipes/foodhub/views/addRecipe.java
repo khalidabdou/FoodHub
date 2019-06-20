@@ -26,8 +26,10 @@ import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
 import com.recipes.foodhub.R;
 import com.recipes.foodhub.model.recipe;
+import com.recipes.foodhub.model.user;
 import com.recipes.foodhub.presenter.IRescips_manager;
 import com.recipes.foodhub.presenter.recipes_manager;
+import com.recipes.foodhub.presenter.user_manager;
 import com.squareup.picasso.Picasso;
 
 public class addRecipe extends AppCompatActivity {
@@ -52,6 +54,8 @@ public class addRecipe extends AppCompatActivity {
 
 
     private StorageTask mUploadTask;
+    private user userInfo;
+    private com.recipes.foodhub.presenter.user_manager user_manager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,7 +65,8 @@ public class addRecipe extends AppCompatActivity {
         title_recipe=findViewById(R.id.id_title);
         ingdedient=findViewById(R.id.id_ingdedient);
         how_to=findViewById(R.id.id_how_to);
-        myrecipe =new recipes_manager();
+        myrecipe =new recipes_manager(this);
+        user_manager=new user_manager(context);
         recipe=new recipe();
 
 
@@ -183,10 +188,12 @@ public class addRecipe extends AppCompatActivity {
     }
     private void uploadinfo(){
 
-
+        userInfo=user_manager.getInfoFromShared();
         recipe.setTitle(title_recipe.getText().toString());
         recipe.setIngredient(ingdedient.getText().toString());
         recipe.setHow_to(how_to.getText().toString());
+        recipe.setUser_id(userInfo.getUserid());
+        recipe.setRanking(0);
         myrecipe.addRecipe(recipe,context);
     }
 
